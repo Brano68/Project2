@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@responsive{
+    .bgcolor {
+    background: linear-gradient(268.83deg, #76FF61 2.32%, #29ABE2 99.46%), #C4C4C4;
+}
+  .field-gradient{
+    background: radial-gradient(112.5% 112.5% at 50% 50%, #29ABE2 0%, #76FF61 100%), #C4C4C4;
+  }
+   .btn-shadow{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   }
+   .white-field{ 
+    background: white;
+   }
+   .txt-shadow{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   }
+   .btn-nav{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+   }
+   .bgcolor-button{
+    background: linear-gradient(266.19deg, #76FF61 -1.75%, #29ABE2 100%), #FFFFFF;
+   }
+   .bglogin{
+    background: radial-gradient(61.63% 81.47% at 46.28% 55.08%, #76FF61 0%, #29ABE2 100%), #C4C4C4;
+   }
+   .left-50{ 
+     margin-left:50%;
+   }
+   .-left-50{ 
+    margin-left:-50%;
+  }
+  .account-shadow{
+    box-shadow: 0px 2px 30px 6px rgba(0, 0, 0, 0.15);
+  }
+  .account-sec-shadow{ 
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.3);
+  }
+  .border-lg{
+    border-width: 1px;
+  }
+  .card{
+    background: linear-gradient(246.73deg, #76FF61 -10.83%, #29ABE2 102.66%), #FFFFFF;
+    box-shadow: 0px 2px 30px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 246px;
+    height: 133px;
+  } 
+  .transparent{
+    background-color: transparent;
+  }
+  .bg-menu{ 
+    background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+}
+@layer base {
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 400;
+    src: url(/assets/OpenSans-Regular.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 300;
+    src: url(/assets/OpenSans-Light.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 600;
+    src: url(/assets/OpenSans-SemiBold.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 700;
+    src: url(/assets/OpenSans-Bold.ttf) format("ttf");
+    @font-face {
+      font-family: OpenSans;
+      font-weight: 800;
+      src: url(/assets/OpenSans-ExtraBold.ttf) format("ttf");
+    }
+  }
+}
