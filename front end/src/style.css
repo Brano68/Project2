@@ -86,3 +86,9 @@
     }
   }
 }
+@layer components{
+  .calDays{
+    margin: auto;
+    
+  }
+}
