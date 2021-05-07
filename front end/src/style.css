@@ -90,6 +90,10 @@
   .calDays{
     margin: auto;
     font: bold;
+    
+  }
+  .calDays:hover{
+    cursor: pointer;
   }
   .daysDiv{
     margin: auto;

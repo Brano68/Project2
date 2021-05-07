@@ -630,6 +630,10 @@ video {
   font: bold;
 }
 
+.calDays:hover{
+  cursor: pointer;
+}
+
 .daysDiv{
   margin: auto;
   font-weight: 700;
