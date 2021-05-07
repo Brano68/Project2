@@ -89,6 +89,18 @@
 @layer components{
   .calDays{
     margin: auto;
+    font: bold;
+  }
+  .daysDiv{
+    margin: auto;
+    font-weight: 700;
+  }
+  .dayNames{
     
+    font-size: 0.875rem/* 14px */;
+    line-height: 1.25rem/* 20px */;
+
+    --tw-text-opacity: 1;
+    color: rgba(156, 163, 175, var(--tw-text-opacity));
   }
 }
