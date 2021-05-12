@@ -1,20 +1,23 @@
 var monthChange = 0;
 
-var leftArrow = document.getElementById("leftArrow").onclick = function monthDecrease(){
+function generateCalendar(){
+    for(var i = 1;i < 32;i++){
+        $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + i + '"><p class="calDays">' + i + '</p></div>' );
+    }
+}
+
+
+document.getElementById("leftArrow").addEventListener("click", function monthDecrease(){
     monthChange-- ;
     return monthChange;
     location.reload;
-}
+});
 
-var rightArrow = document.getElementById("rightArrow").onclick = function monthIncrease(){
+document.getElementById("rightArrow").onclick = function monthIncrease(){
     monthChange++ ;
     return monthChange;
     location.reload;
-}
-
-
-
-
+};
 
 function getCurrentDate(){
     const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -28,8 +31,7 @@ function getCurrentDate(){
     document.getElementById("day").innerHTML = day;
     document.getElementById("month").innerHTML = monthNames[month];
     document.getElementById("year").innerHTML = year;
-}
+};
 
-window.onload = leftArrow;
-window.onload = rightArrow;
 window.onload = getCurrentDate;
+window.onload = generateCalendar;
