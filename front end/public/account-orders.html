@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="flex flex-col justify-center py-5 md:hidden">
-                <a href="account-orders.html" class="account-shadow py-3 px-3 my-2 rounded-xl"><button class="font-bold bgcolor">ORDERS</button></a>
+                <a href="account-orders.html" class="account-shadow py-3 px-3 my-2 rounded-xl bgcolor"><button class="font-bold">ORDERS</button></a>
                 <a href="account-card.html" class="account-shadow py-3 px-3 my-2 rounded-xl flex justify-center"><button class="font-bold">CARD</button></a>
                 <a href="account-logout.html" class="account-shadow py-3 px-3 my-2 rounded-xl"><button class="font-bold">LOGOUT</button></a>
             </div>
@@ -52,13 +52,13 @@
 
         
 
-        <div class="md:flex flex-row -mt-4">
+        <div class="md:flex flex-row md:-mt-4">
             <div class="hidden md:flex flex-col mt-4">
                 <div class="bg-white mx-4 my-4 rounded-md flex flex-row account-shadow justify-around items-center">
                     <div class="flex flex-col items-center m-auto md:py-4 md:px-12 lg:py-8 lg:px-24">
                         <div class="bg-gray-300 rounded-full w-24 h-24">
                         </div>
-                        <div class="flex flex-col items-center">
+                        <div class="flex flex-col items-center"
                             <p>fname lname</p>
                             <p>email</p>
                         </div>
@@ -74,15 +74,34 @@
         <div class="flex flex-col justify-center mx-4 my-4 p-4 bgcolor md:w-72 md:absolute md:top-40 md:left-52 lg:w-96 lg:top-16 lg:left-80">
             <div class="bg-white">
                 <div class="flex flex-row justify-around my-2 font-bold">
-                    <div class="flex flex-row justify-between">
+                    <div class="flex flex-row justify-between text-xl">
                         <p id="day" class="text-blue"></p>
                         <p>&nbsp; &nbsp;</p>
                         <p id="month" class="text-blue"></p>
                         <p>&nbsp; &nbsp;</p>
                         <p id="year" class="text-blue"></p>
                     </div>
-                    <div>
-                        <p>Šipky</p>
+                    <div class="flex flex-row">
+                        <div class="cursor=pointer" id="leftArrow">
+                            <svg width="36" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.5 35C28.7843 35 35.5 28.2843 35.5 20C35.5 11.7157 28.7843 5 20.5 5C12.2157 5 5.5 11.7157 5.5 20C5.5 28.2843 12.2157 35 20.5 35Z" stroke="#A0A0A0" stroke-width="2" stroke-miterlimit="10"/>
+                                <path d="M19.5533 25.3033L14.25 20.0001L19.5533 14.6968" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.25 20H26.75" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="w-3">
+
+                        </div>
+                            
+                        <div class="cursor=pointer" id="rightArrow">
+                            <svg width="36" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.5  5C12.2157 5 5.5 11.7157 5.5 20C5.5 28.2843 12.2157 35 20.5 35C28.7843 35 35.5 28.2843 35.5 20C35.5 11.7157 28.7843 5 20.5 5Z" stroke="#29ABE2" stroke-width="2" stroke-miterlimit="10"/>
+                                <path d="M21.4467 14.6967L26.75 19.9999L21.4467 25.3032" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M26.75 20L14.25 20" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
+                            
                     </div>
                 </div>
                 <div class="flex flex-col">
