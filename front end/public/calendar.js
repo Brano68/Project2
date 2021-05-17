@@ -56,6 +56,36 @@ function getCurrentDate(){
     document.getElementById("day").innerHTML = day;
     document.getElementById("month").innerHTML = monthNames[month];
     document.getElementById("year").innerHTML = year;
+
+    if(month==0){
+        var numberOfDays = 31;
+    }else if(month==1){
+        var numberOfDays = 28;
+    }else if(month==2){
+        var numberOfDays = 31;
+    }else if(month==3){
+        var numberOfDays = 30;
+    }else if(month==4){
+        var numberOfDays = 31;
+    }else if(month==5){
+        var numberOfDays = 30;
+    }else if(month==6){
+        var numberOfDays = 31;
+    }else if(month==7){
+        var numberOfDays = 31;
+    }else if(month==8){
+        var numberOfDays = 30;
+    }else if(month==9){
+        var numberOfDays = 31;
+    }else if(month==10){
+        var numberOfDays = 30;
+    }else if(month==11){
+        var numberOfDays = 31;
+    }
+
+    for(var i = 1;i < numberOfDays+1;i++){
+        $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + (i) + '"><p class="calDays">' + i + '</p></div>' );
+    }
 };
 
 window.onload = getCurrentDate;
