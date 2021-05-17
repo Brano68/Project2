@@ -82,7 +82,7 @@
                         <p id="year" class="text-blue"></p>
                     </div>
                     <div class="flex flex-row">
-                        <div class="cursor-pointer" id="leftArrow">
+                        <div class="cursor-pointer" id="leftArrow" onclick="monthDecrease()">
                             <svg width="36" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.5 35C28.7843 35 35.5 28.2843 35.5 20C35.5 11.7157 28.7843 5 20.5 5C12.2157 5 5.5 11.7157 5.5 20C5.5 28.2843 12.2157 35 20.5 35Z" stroke="#A0A0A0" stroke-width="2" stroke-miterlimit="10"/>
                                 <path d="M19.5533 25.3033L14.25 20.0001L19.5533 14.6968" stroke="#A0A0A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -93,7 +93,7 @@
 
                         </div>
                             
-                        <div class="cursor-pointer" id="rightArrow">
+                        <div class="cursor-pointer" id="rightArrow" onclick="monthIncrease()">
                             <svg width="36" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20.5  5C12.2157 5 5.5 11.7157 5.5 20C5.5 28.2843 12.2157 35 20.5 35C28.7843 35 35.5 28.2843 35.5 20C35.5 11.7157 28.7843 5 20.5 5Z" stroke="#29ABE2" stroke-width="2" stroke-miterlimit="10"/>
                                 <path d="M21.4467 14.6967L26.75 19.9999L21.4467 25.3032" stroke="#29ABE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -145,7 +145,7 @@
                     </div>
                     <div id="dayDateDiv" class="grid grid-cols-7 grid-rows-6 gap-4 items-center p-3">
                         
-                        <!-- <div class="daysDiv" id="dayDate1">
+                        <div class="daysDiv" id="dayDate1">
                             <p class="calDays">
                                 1
                             </p>
@@ -354,7 +354,7 @@
                             <p class="calDays text-gray-300">
                                 11
                             </p>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
