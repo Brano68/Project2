@@ -11,14 +11,28 @@ function showPassword() {
 const login = () =>{
 const user = document.getElementById('user').value.trim()
 const password = document.getElementById('password').value.trim()
+var checkBox = document.getElementById("admin");
+
+let userName = null;
+
+if (checkBox.checked === true) {
+    userName = 'admin';
+} else {
+    userName = 'userrr';
+}
+
 const userData = {
   "login": user,
-  "password": password,
+  "password": password
 }
-    xhr.open('post', 'https://localhost:44353/userrr/login', true)
-    xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
-    console.log(JSON.stringify(userData))
-    xhr.send(JSON.stringify(userData));
+
+
+const url = 'https://localhost:44353/' + userName + '/login';
+xhr.open('post', url, true)
+xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
+console.log(JSON.stringify(userData))
+xhr.send(JSON.stringify(userData));
+
 }
 
 loginButton.addEventListener('click', login)

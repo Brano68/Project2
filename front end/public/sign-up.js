@@ -2,13 +2,16 @@ const button = document.getElementById('signup')
 var xhr = new XMLHttpRequest()
 var checkBox = document.getElementById("admin");
 var adminField = document.getElementById("adminField");
+const global = document.getElementById('global')
 
 
 function adminFunction() {
   if (checkBox.checked == true){
     adminField.style.display = "flex";
+    global.style.padding = "4px"
   } else {
     adminField.style.display = "none";
+    global.style.padding = "0px"
   }
 }
 
