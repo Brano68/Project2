@@ -10,6 +10,7 @@
 // }
 var monthChange = 0;
 
+
 function monthDecrease(){
     var monthChangeStored = window.localStorage.getItem("monthChangeStored");
     
@@ -84,9 +85,44 @@ function getCurrentDate(){
     }
 
     for(var i = 1;i < numberOfDays+1;i++){
-        $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + (i) + '"><p class="calDays">' + i + '</p></div>' );
+        if(month == d.getMonth() && i == d.getDate()){
+            $( "#dayDateDiv" ).append( '<div class="daysDivHighlighted" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
+        }else{
+            $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
+        }
+        
     }
+
+    function getOrderDate(clicked_id){
+        var pickedDate1 = document.getElementById(clicked_id).innerHTML
+        var pickedMonth1 = month
+        var pickedDate1Stored = window.localStorage.getItem("pickedDate1Stored")
+        var pickedMonth1Stored = window.localStorage.getItem("pickedMonth1Stored")
+        if(pickedDate1Stored==null&&pickedMonth1Stored==null){
+            window.localStorage.setItem("pickedDate1Stored",pickedDate1)
+            pickedDate1Stored = window.localStorage.getItem("pickedDate1Stored")
+            window.localStorage.setItem("pickedMonth1Stored",pickedMonth1)
+            pickedMonth1Stored = window.localStorage.getItem("pickedMonth1Stored")
+            console.log(pickedDate1Stored + pickedMonth1Stored);
+        }else{
+            pickedDate1Stored = null
+            window.localStorage.setItem("pickedDate1Stored",pickedDate1Stored)
+            pickedMonth1Stored = null
+            window.localStorage.setItem("pickedMonth1Stored",pickedMonth1Stored)
+            console.log(pickedDate1Stored + pickedMonth1Stored);
+        }
+        
+       
+    
+        
+    
+    
+    location.reload();
+        
+    }
+
 };
 
+
+
 window.onload = getCurrentDate;
-//window.onload = generateCalendar;

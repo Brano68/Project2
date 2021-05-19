@@ -92,12 +92,38 @@
     font: bold;
     
   }
-  .calDays:hover{
-    cursor: pointer;
-  }
+  /* .calDays:hover{
+    
+  } */
   .daysDiv{
     margin: auto;
     font-weight: 700;
+  }
+  .daysDiv:hover{
+    cursor: pointer;
+  }
+
+  .daysDivPicked1{
+    margin: auto;
+    font-weight: 700;
+    background-color: #76FF61;
+  }
+  
+  .daysDivPicked2{
+    margin: auto;
+    font-weight: 700;
+    background-color: #76FF61;
+  }
+
+  .daysDivHighlighted{
+    padding-left: 3px;
+    padding-right: 4px;
+    
+    border-radius: 50%;
+
+    margin: auto;
+    font-weight: 700;
+    background-color: #29ABE2; 
   }
   .dayNames{
     

@@ -1,6 +1,6 @@
-/*! tailwindcss v2.1.1 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
-/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
 Document
@@ -12,8 +12,8 @@ Use a better box model (opinionated).
 */
 
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@ Use a better box model (opinionated).
 Use a more readable tab size (opinionated).
 */
 
-:root {
+html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
      tab-size: 4;
@@ -630,13 +630,38 @@ video {
   font: bold;
 }
 
-.calDays:hover{
-  cursor: pointer;
-}
+/* .calDays:hover{
+    
+  } */
 
 .daysDiv{
   margin: auto;
   font-weight: 700;
+}
+
+.daysDiv:hover{
+  cursor: pointer;
+}
+
+.daysDivPicked1{
+  margin: auto;
+  font-weight: 700;
+  background-color: #76FF61;
+}
+
+.daysDivPicked2{
+  margin: auto;
+  font-weight: 700;
+  background-color: #76FF61;
+}
+
+.daysDivHighlighted{
+  padding-left: 3px;
+  padding-right: 4px;
+  border-radius: 50%;
+  margin: auto;
+  font-weight: 700;
+  background-color: #29ABE2;
 }
 
 .dayNames{
