@@ -8,6 +8,18 @@ function showPassword() {
       x.type = "password";
     }
   }
+
+  xhr.onload = () => {
+    const response = JSON.parse(xhr.responseText);
+    console.log(response);
+    const token = response.token;
+    const role = response.role;
+    if (document.cookie = 'token=' + token)
+    window.location.href = "account-orders.html"
+    
+};
+
+
 const login = () =>{
 const user = document.getElementById('user').value.trim()
 const password = document.getElementById('password').value.trim()
@@ -34,5 +46,7 @@ console.log(JSON.stringify(userData))
 xhr.send(JSON.stringify(userData));
 
 }
+
+
 
 loginButton.addEventListener('click', login)

@@ -27,6 +27,8 @@ function showPassword() {
 xhr.onload = () => {
       const response = JSON.parse(xhr.responseText);
       console.log(response);
+      if (response.statusCode === 200)
+      window.location.href = "login.html"
   };
   
   const create = () =>{
@@ -57,7 +59,8 @@ xhr.onload = () => {
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
-  
+    
+    //window.location.href = "login.html";
   }
 
 
