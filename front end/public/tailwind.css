@@ -671,6 +671,39 @@ video {
   color: rgba(156, 163, 175, var(--tw-text-opacity));
 }
 
+.carsDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  position: absolute;
+  width: 320px;
+  height: 999px;
+  left: 20px;
+  top: 54px;
+}
+
+.carDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 22px 32px;
+  position: static;
+  width: 320px;
+  height: 232px;
+  left: 0px;
+  top: 507px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  /* Inside Auto Layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  margin: 10px 0px;
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));

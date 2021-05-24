@@ -152,6 +152,7 @@ function getOrderDate(clicked_id){
         }else{
             alert("You already picked 2 dates")
             alert(flag)
+            location.reload();
         }
         
     }

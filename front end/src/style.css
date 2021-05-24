@@ -133,4 +133,41 @@
     --tw-text-opacity: 1;
     color: rgba(156, 163, 175, var(--tw-text-opacity));
   }
+  .carsDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    position: absolute;
+    width: 320px;
+    height: 999px;
+    left: 20px;
+    top: 54px;
+
+  }
+  .carDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 32px;
+
+    position: static;
+    width: 320px;
+    height: 232px;
+    left: 0px;
+    top: 507px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+    margin: 10px 0px;
+  }
 }
