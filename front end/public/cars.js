@@ -1,22 +1,28 @@
 
-function getCars(){
+async function getCars(url = 'https://localhost:5001/car/models?From=25.05.2021&To=30.05.2021', data = {}){
 
-  var result = $.ajax({
-    type: "POST",
-    url: "https://localhost:5001/car/models?From=25.05.2021&To=30.05.2021",
-    param: '{}',
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    async: false,
-    success: function (data) {
-        
-  }
-}) .responseText ;
-return  result;
+  const response = await fetch(url,{
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(data)
+    
+  });
 
-console.log(result);
-
+  return response.json();
+  console.log(response);
 
 }
 
-onload.getCars();
+
+  
+
+
+
+window.onload="getCars()";
