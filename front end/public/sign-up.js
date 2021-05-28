@@ -4,6 +4,14 @@ var checkBox = document.getElementById("admin");
 var adminField = document.getElementById("adminField");
 const global = document.getElementById('global')
 
+function adminCreate(){
+  let role = window.localStorage.getItem("role")
+  if (role === admin){
+    checkBox.display = "flex";
+  } else {
+    checkBox.display = "none";
+  }
+}
 
 function adminFunction() {
   if (checkBox.checked == true){
@@ -60,7 +68,6 @@ xhr.onload = () => {
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
     
-    //window.location.href = "login.html";
   }
 
 

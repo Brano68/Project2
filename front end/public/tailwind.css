@@ -625,6 +625,27 @@ video {
   }
 }
 
+.calDays{
+  margin: auto;
+  font: bold;
+}
+
+.calDays:hover{
+  cursor: pointer;
+}
+
+.daysDiv{
+  margin: auto;
+  font-weight: 700;
+}
+
+.dayNames{
+  font-size: 0.875rem/* 14px */;
+  line-height: 1.25rem/* 20px */;
+  --tw-text-opacity: 1;
+  color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
@@ -31857,6 +31878,14 @@ video {
   background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
 }
 
+.rounded-20{
+  border-radius: 20px;
+}
+
+.rounded-50{
+  border-radius: 50px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -62951,6 +62980,14 @@ video {
 
   .sm\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .sm\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .sm\:rounded-50{
+    border-radius: 50px;
   }
 }
 
@@ -94049,6 +94086,14 @@ video {
   .md\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
   }
+
+  .md\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .md\:rounded-50{
+    border-radius: 50px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -125145,6 +125190,14 @@ video {
 
   .lg\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .lg\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .lg\:rounded-50{
+    border-radius: 50px;
   }
 }
 
@@ -156243,6 +156296,14 @@ video {
   .xl\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
   }
+
+  .xl\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .xl\:rounded-50{
+    border-radius: 50px;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -187339,5 +187400,13 @@ video {
 
   .\32xl\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .\32xl\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .\32xl\:rounded-50{
+    border-radius: 50px;
   }
 }

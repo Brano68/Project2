@@ -1,13 +1,4 @@
 
-
-
-
-
-// function generateCalendar(){
-//     for(var i = 1;i < 32;i++){
-//         $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + i + '"><p class="calDays">' + i + '</p></div>' );
-//     }
-// }
 var monthChange = 0;
 
 function monthDecrease(){

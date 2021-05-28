@@ -14,8 +14,13 @@ function showPassword() {
     console.log(response);
     const token = response.token;
     const role = response.role;
-    if (document.cookie = 'token=' + token)
-    window.location.href = "account-orders.html"
+    const login = document.getElementById('user').value.trim()
+    window.localStorage.setItem("token", token)
+    window.localStorage.setItem("role", role) 
+    window.localStorage.setItem("login", login) 
+    window.location.href = "account.html"
+    alert(login)
+   
     
 };
 
