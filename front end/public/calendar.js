@@ -158,4 +158,14 @@ function getOrderDate(clicked_id){
     }
 }
 
+function resetCalendar(){
+    let reset = null;
+    let resetMonth = 0;
+    window.localStorage.setItem("pickedDate1Stored", reset);
+    window.localStorage.setItem("pickedMonth1stored", reset);
+    window.localStorage.setItem("pickedDate2Stored", reset);
+    window.localStorage.setItem("pickedMonth2stored", reset);
+    window.localStorage.setItem("monthChangeStored", resetMonth);
+}
+
 window.onload = getCurrentDate;
