@@ -79,22 +79,27 @@ function getCurrentDate(){
     for(var i = 1;i < numberOfDays+1;i++){
         if(month == d.getMonth() && i == d.getDate()){
             $( "#dayDateDiv" ).append( '<div class="daysDivHighlighted" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
+        }else if(month == month1final && i == date1final){
+            $( "#dayDateDiv" ).append( '<div class="daysDivPicked1" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
+        }else if(month == month2final && i == date2final){
+            $( "#dayDateDiv" ).append( '<div class="daysDivPicked2" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
         }else{
             $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
         }
         
     }
 
-    var date1final = window.localStorage.getItem("pickedDate1Stored")
-    var date2final = window.localStorage.getItem("pickedDate2Stored")
-    var month1final = window.localStorage.getItem("pickedMonth1Stored")
-    var month2final = window.localStorage.getItem("pickedMonth2Stored")
+    var date1final = parseInt(window.localStorage.getItem("pickedDate1Stored")); 
+    var date2final = parseInt(window.localStorage.getItem("pickedDate2Stored")); 
+    var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
+    var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
+    var flag = window.localStorage.getItem("flagStored")
 
     console.log(date1final);
     console.log(month1final);
     console.log(date2final);
     console.log(month2final);
-
+    console.log(flag);
     
 
 };
@@ -102,60 +107,77 @@ function getCurrentDate(){
 
 
 function getOrderDate(clicked_id){
-    var d = new Date();
-    var flag = window.localStorage.getItem("flagStored");
-    var monthChangeStored = window.localStorage.getItem("monthChangeStored");
-    var pickedDate = document.getElementById(clicked_id).firstChild.innerHTML
+    let d = new Date();
+    let flag = window.localStorage.getItem("flagStored");
     
-    var pickedMonth = Number(d.getMonth()) + Number(monthChangeStored) + 1;
+    let monthChangeStored = window.localStorage.getItem("monthChangeStored");
+    let pickedDate = document.getElementById(clicked_id).firstChild.innerHTML
     
-    if(flag == null){
+    let pickedMonth = Number(d.getMonth()) + Number(monthChangeStored) + 1;
+    
+    function pickingOrderDate(){
         
-        window.localStorage.setItem("pickedDate1Stored", pickedDate)
-        window.localStorage.setItem("pickedMonth1Stored",pickedMonth)
-        
-        flag = 1;
-        window.localStorage.setItem("flagStored", flag);
-
-        location.reload();
-    }else if(flag==1){
-        var pickedDate1Stored = window.localStorage.getItem("pickedDate1Stored")
-        var pickedMonth1Stored = window.localStorage.getItem("pickedMonth1Stored")
-        if(pickedDate == pickedDate1Stored && pickedMonth == pickedMonth1Stored){
-            pickedDate1Stored = null
-            pickedMonth1Stored = null
+        if(flag === "null"){
+            window.localStorage.setItem("pickedDate1Stored", pickedDate)
+            window.localStorage.setItem("pickedMonth1Stored",pickedMonth)
             
-            window.localStorage.setItem("pickedDate1Stored", pickedDate1Stored)
-            window.localStorage.setItem("pickedMonth1Stored", pickedMonth1Stored)
-            flag = null;
-            window.localStorage.setItem("flagStored", flag)
+            let newFlag = 1;
+            window.localStorage.setItem("flagStored", newFlag);
+    
             location.reload();
-        }else{
             
-            window.localStorage.setItem("pickedDate2Stored",pickedDate)
-            window.localStorage.setItem("pickedMonth2Stored", pickedMonth)
-            flag = 2;
-            window.localStorage.setItem("flagStored", flag)
-            location.reload();
         }
-    }else if(flag == 2){
-        var pickedDate2Stored = window.localStorage.getItem("pickedDate2Stored")
-        var pickedMonth2Stored = window.localStorage.getItem("pickedMonth2Stored")
-        if(pickedDate == pickedDate2Stored && pickedMonth == pickedMonth2Stored){
-            var pickedDate2Stored = null
-            var pickedMonth2Stored = null
-            window.localStorage.setItem("pickedDate2Stored",pickedDate2Stored)
-            window.localStorage.setItem("pickedMonth2Stored", pickedMonth2Stored)
-            flag = 1
-            window.localStorage.setItem("flagStored", flag)
-            location.reload();
-        }else{
-            alert("You already picked 2 dates")
-            alert(flag)
-            location.reload();
+        else{
+            if(flag === "1"){
+                let pickedDate1Stored = window.localStorage.getItem("pickedDate1Stored")
+                let pickedMonth1Stored = window.localStorage.getItem("pickedMonth1Stored")
+                if(pickedDate == pickedDate1Stored && pickedMonth == pickedMonth1Stored){
+                    pickedDate1Stored = null
+                    pickedMonth1Stored = null
+              
+                    window.localStorage.setItem("pickedDate1Stored", pickedDate1Stored)
+                    window.localStorage.setItem("pickedMonth1Stored", pickedMonth1Stored)
+                    let newFlag = null;
+                    window.localStorage.setItem("flagStored", newFlag)
+                    location.reload();
+                }else{
+              
+                    window.localStorage.setItem("pickedDate2Stored",pickedDate)
+                    window.localStorage.setItem("pickedMonth2Stored", pickedMonth)
+                    let newFlag = 2;
+                    window.localStorage.setItem("flagStored", newFlag)
+                    location.reload();
+                }
+            }else if(flag === "2"){
+                let pickedDate2Stored = window.localStorage.getItem("pickedDate2Stored")
+                let pickedMonth2Stored = window.localStorage.getItem("pickedMonth2Stored")
+                if(pickedDate == pickedDate2Stored && pickedMonth == pickedMonth2Stored){
+                    let pickedDate2Stored = null
+                    let pickedMonth2Stored = null
+                    window.localStorage.setItem("pickedDate2Stored",pickedDate2Stored)
+                    window.localStorage.setItem("pickedMonth2Stored", pickedMonth2Stored)
+                    let newFlag = 1
+                    window.localStorage.setItem("flagStored", newFlag)
+                    location.reload();
+                }else if(pickedDate == pickedDate1Stored && pickedMonth == pickedMonth1Stored){
+                    let pickedDate1Stored = null
+                    let pickedMonth1Stored = null
+                    window.localStorage.setItem("pickedDate1Stored",pickedDate1Stored)
+                    window.localStorage.setItem("pickedMonth1Stored", pickedMonth1Stored)
+                    let newFlag = 1
+                    window.localStorage.setItem("flagStored", newFlag)
+                    location.reload();
+                }
+                else{
+                    resetCalendar();
+                    location.reload();
+                }  
+            }
         }
-        
     }
+    pickingOrderDate();
+    
+    
 }
 
 function resetCalendar(){
@@ -166,6 +188,7 @@ function resetCalendar(){
     window.localStorage.setItem("pickedDate2Stored", reset);
     window.localStorage.setItem("pickedMonth2stored", reset);
     window.localStorage.setItem("monthChangeStored", resetMonth);
+    window.localStorage.setItem("flagStored", reset);
 }
 
 window.onload = getCurrentDate;
