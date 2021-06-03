@@ -3,13 +3,16 @@ var xhr = new XMLHttpRequest()
 var checkBox = document.getElementById("admin");
 var adminField = document.getElementById("adminField");
 const global = document.getElementById('global')
+let role = window.localStorage.getItem("role")
+let login = window.localStorage.getItem("login")
+alert(role)
 
-function adminCreate(){
+const adminCreate= () => {
   let role = window.localStorage.getItem("role")
-  if (role === admin){
-    checkBox.display = "flex";
+  if (role == "admin"){
+    document.getElementById('adminField').style.display = "flex";
   } else {
-    checkBox.display = "none";
+    document.getElementById('adminField').style.display = "none";
   }
 }
 
@@ -46,7 +49,9 @@ xhr.onload = () => {
   
     let adminInput = null;
     let userName = null;
-  
+    
+
+    
     if (checkBox.checked === true) {
         userName = 'admin';
         adminInput = document.getElementById("adminField").value.trim()
@@ -55,6 +60,7 @@ xhr.onload = () => {
     }
   
     const userData = {
+      "loginWhoIsCreating": login,
       "login": user,
       "password": password,
       "email" : email,

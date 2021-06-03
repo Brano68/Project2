@@ -14,19 +14,35 @@ function showPassword() {
     console.log(response);
     const token = response.token;
     const role = response.role;
-    const login = document.getElementById('user').value.trim()
+    const fname = response.userFname;
+    const lname = response.userLname;
+    const phone = response.phoneNumber;
+    const state = response.state;
+    const city = response.city;
+    const address = response.adress;
+    const postCode = response.postCode;
+    const driversLicense = response.driverLicenseNumber
+
     window.localStorage.setItem("token", token)
     window.localStorage.setItem("role", role) 
-    window.localStorage.setItem("login", login) 
-    window.location.href = "account.html"
-    alert(login)
-   
-    
-};
+    window.localStorage.setItem("fname", fname) 
+    window.localStorage.setItem("lname", lname)
+    window.localStorage.setItem("phone", phone) 
+    window.localStorage.setItem("state", state) 
+    window.localStorage.setItem("city", city) 
+    window.localStorage.setItem("address", address) 
+    window.localStorage.setItem("postCode", postCode) 
+    window.localStorage.setItem("driversLicense", driversLicense) 
+
+    if (response.statusCode == 200) {
+      window.location.href = "account.html"
+    }
+    };
 
 
 const login = () =>{
 const user = document.getElementById('user').value.trim()
+window.localStorage.setItem("login", user)
 const password = document.getElementById('password').value.trim()
 var checkBox = document.getElementById("admin");
 
@@ -49,8 +65,8 @@ xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))
 xhr.send(JSON.stringify(userData));
-
 }
+
 
 
 
