@@ -76,12 +76,20 @@ function getCurrentDate(){
         var numberOfDays = 31;
     }
 
+    var date1final = parseInt(window.localStorage.getItem("pickedDate1Stored")); 
+    var date2final = parseInt(window.localStorage.getItem("pickedDate2Stored")); 
+    var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
+    var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
+    var flag = window.localStorage.getItem("flagStored")
+
+    
+
     for(var i = 1;i < numberOfDays+1;i++){
-        if(month == d.getMonth() && i == d.getDate()){
+        if(month == d.getMonth() && i == day){
             $( "#dayDateDiv" ).append( '<div class="daysDivHighlighted" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
-        }else if(month == month1final && i == date1final){
+        }else if(month == (month1final - 1)  && i == date1final){
             $( "#dayDateDiv" ).append( '<div class="daysDivPicked1" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
-        }else if(month == month2final && i == date2final){
+        }else if(month == (month2final - 1) && i == date2final){
             $( "#dayDateDiv" ).append( '<div class="daysDivPicked2" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
         }else{
             $( "#dayDateDiv" ).append( '<div class="daysDiv" id="dayDate' + (i) + '"onClick="getOrderDate(this.id)"><p class="calDays">' + i + '</p></div>' );
@@ -89,11 +97,7 @@ function getCurrentDate(){
         
     }
 
-    var date1final = parseInt(window.localStorage.getItem("pickedDate1Stored")); 
-    var date2final = parseInt(window.localStorage.getItem("pickedDate2Stored")); 
-    var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
-    var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
-    var flag = window.localStorage.getItem("flagStored")
+    
 
     console.log(date1final);
     console.log(month1final);
