@@ -113,6 +113,10 @@
     font-weight: 700;
     background-color: #76FF61;
   }
+
+  .daysDivPicked1:hover{
+    cursor: pointer;
+  }
   
   .daysDivPicked2{
     padding-left: 3px;
@@ -123,6 +127,10 @@
     margin: auto;
     font-weight: 700;
     background-color: #76FF61;
+  }
+
+  .daysDivPicked2:hover{
+    cursor: pointer;
   }
 
   .daysDivHighlighted{
