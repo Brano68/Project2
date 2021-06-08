@@ -58,7 +58,14 @@
   .bg-menu{ 
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
   }
+  .rounded-20{
+  border-radius: 20px;
 }
+.rounded-50{
+  border-radius: 50px;
+}
+}
+
 @layer base {
   @font-face {
     font-family: OpenSans;

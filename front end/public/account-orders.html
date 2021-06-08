@@ -9,6 +9,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="index.js"></script>
         <script src="calendar.js"></script>
+        <script src="logout.js"></script>
         <title>Car Rental</title>
     </head>
     <body class= "box-border bg-graybg h-screen"> 
@@ -47,8 +48,11 @@
                 </div>
             </div>
             <div class="flex flex-col justify-center py-5 md:hidden">
+
                 <a href="account-orders.html" class="account-shadow py-3 px-3 my-2 rounded-xl bgcolor" onclick="resetCalendar()"><button class="font-bold">ORDERS</button></a>
                 <a href="account-card.html" class="account-shadow py-3 px-3 my-2 rounded-xl flex justify-center"><button class="font-bold">MY ORDERS</button></a>
+
+
                 <a href="account-logout.html" class="account-shadow py-3 px-3 my-2 rounded-xl"><button class="font-bold">LOGOUT</button></a>
             </div>
         </div>
@@ -68,8 +72,13 @@
                     </div>
                 </div>
                 <div class="hidden md:flex flex-col justify-center py-6 mr-4 bg-white account-shadow rounded-md ml-4 mt-3 lg:py-2">
+
                     <a href="account-orders.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center bgcolor" onclick="resetCalendar()"><button class="font-bold">ORDERS</button></a>
-                    <a href="account-card.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">MY ORDERS</button></a>
+                    
+
+                    
+                    <a href="account-myOrders.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">M<span>Y ORDERS</span></button></a>
+
                     <a href="account-logout.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">LOGOUT</button></a>
                 </div>
             </div>
@@ -152,11 +161,16 @@
                 </div>
             </div>
         </div>
+
         <div class="mr-8">
             <a href="cars.html">
                 <button class="bgcolor font-bold rounded-md w-full ml-4 mr-4  my-4 p-4 md:w-72 md:absolute md:top-100 md:left-52 lg:w-96 lg:top-96 lg:left-80" onclick="getCars()">CONFIRM</button>
             </a>
             
         </div> 
+
+        
+     
+
     </body>
 </html>

@@ -32002,6 +32002,14 @@ video {
   background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
 }
 
+.rounded-20{
+  border-radius: 20px;
+}
+
+.rounded-50{
+  border-radius: 50px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -63096,6 +63104,14 @@ video {
 
   .sm\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .sm\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .sm\:rounded-50{
+    border-radius: 50px;
   }
 }
 
@@ -94194,6 +94210,14 @@ video {
   .md\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
   }
+
+  .md\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .md\:rounded-50{
+    border-radius: 50px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -125290,6 +125314,14 @@ video {
 
   .lg\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .lg\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .lg\:rounded-50{
+    border-radius: 50px;
   }
 }
 
@@ -156388,6 +156420,14 @@ video {
   .xl\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
   }
+
+  .xl\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .xl\:rounded-50{
+    border-radius: 50px;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -187484,5 +187524,13 @@ video {
 
   .\32xl\:bg-menu{
     background: linear-gradient(222.88deg, #76FF61 11.47%, #29ABE2 90.76%), #C4C4C4;
+  }
+
+  .\32xl\:rounded-20{
+    border-radius: 20px;
+  }
+
+  .\32xl\:rounded-50{
+    border-radius: 50px;
   }
 }
