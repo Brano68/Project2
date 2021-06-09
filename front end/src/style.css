@@ -210,11 +210,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    margin-top:20px;
   }
   #carPicture{
     position: static;
     width: 103px;
-    height: 71px;
+    height: 60px;
     left: 0px;
     top: 0px;
 
@@ -254,6 +256,10 @@
   }
   #carName{
     margin-bottom: 20px;
+  }
+  .carIcons{
+    margin-left:15px;
+    margin-right:15px;
   }
   
 }
