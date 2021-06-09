@@ -7,6 +7,7 @@ var xhr = new XMLHttpRequest()
 const create = () =>{
 let login = window.localStorage.getItem("login")
 let token = window.localStorage.getItem("token")
+const path = document.getElementById("path").value.trim()
 const plate = document.getElementById('plate').value.trim()
 const priceParse = document.getElementById('price').value.trim()
 const price = parseFloat(priceParse)
@@ -31,16 +32,17 @@ if (airConditioner ==='yes'){
 }
    
   const carData = {
-      "brandOfCar": carType,
-      "model": model,
-      "plate": plate,
-      "login": login,
-      "price": price,
-      "fuel": fuelValue,
-      "consumption": consumption,
-      "numberOfPassenger": numberOfPassenger,
-      "gear": gear,
-      "airConditioner": airConditioner,
+    "brandOfCar": carType,
+    "model": model,
+    "plate": plate,
+    "login": login,
+    "price": price,
+    "fuel": fuelValue,
+    "consumption":consumption,
+    "numberOfPassenger": numberOfPassenger,
+    "gear": gear,
+    "airConditioner": airConditioner,
+    "path": path
     }
   
   
@@ -50,7 +52,7 @@ if (airConditioner ==='yes'){
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(carData))
     xhr.send(JSON.stringify(carData));
-    
+    location.reload();
   }
 
 
