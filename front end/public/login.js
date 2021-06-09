@@ -17,24 +17,24 @@ function showPassword() {
     const fname = response.userFname;
     const lname = response.userLname;
     const phone = response.phoneNumber;
-    const state = response.state;
+    const country = response.state;
     const city = response.city;
     const address = response.adress;
     const postCode = response.postCode;
-    const driversLicense = response.driverLicenseNumber
+    const driverLicense = response.driverLicenceNumber;
 
     window.localStorage.setItem("token", token)
     window.localStorage.setItem("role", role) 
     window.localStorage.setItem("fname", fname) 
     window.localStorage.setItem("lname", lname)
     window.localStorage.setItem("phone", phone) 
-    window.localStorage.setItem("state", state) 
+    window.localStorage.setItem("country", country) 
     window.localStorage.setItem("city", city) 
     window.localStorage.setItem("address", address) 
     window.localStorage.setItem("postCode", postCode) 
-    window.localStorage.setItem("driversLicense", driversLicense) 
+    window.localStorage.setItem("driverLicense", driverLicense) 
 
-    if (response.statusCode == 200) {
+    if (response.message.statusCode == 200) {
       window.location.href = "account.html"
     }
     };
