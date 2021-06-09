@@ -9,6 +9,28 @@ function showPassword() {
     }
   }
 
+  const rmCheck = document.getElementById("rememberMe"),
+  userInput = document.getElementById("user");
+  
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+  rmCheck.setAttribute("checked", "checked");
+  userInput.value = localStorage.username;
+} else {
+  rmCheck.removeAttribute("checked");
+  userInput.value = "";
+}
+
+function lsRememberMe() {
+  if (rmCheck.checked && userInput.value !== "") {
+    localStorage.username = userInput.value;
+    localStorage.checkbox = rmCheck.value;
+  } else {
+    localStorage.userInput = "";
+    localStorage.checkbox = "";
+  }
+}
+
   xhr.onload = () => {
     const response = JSON.parse(xhr.responseText);
     console.log(response);

@@ -1,4 +1,3 @@
-const buttonNext = document.getElementById('next')
 const buttonSave = document.getElementById('save')
 var xhr = new XMLHttpRequest()
 
@@ -11,7 +10,6 @@ let cityUser = window.localStorage.getItem("city")
 let addressUser = window.localStorage.getItem("address") 
 let postCodeUser = window.localStorage.getItem("postCode") 
 let driverLicenseUser = window.localStorage.getItem("driverLicense") 
-console.log(fnameUser,lnameUser,phoneUser,countryUser,cityUser,addressUser,postCodeUser,driverLicenseUser)
 
 
 if (fnameUser === "undefined")
@@ -81,5 +79,7 @@ const saveData = () => {
 
     
 buttonSave.addEventListener('click', saveData)
-
+function visitPage(){
+   window.location.href = "account-orders.html"
+}
 
