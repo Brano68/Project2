@@ -16,6 +16,8 @@ function loginHide(){
   if(loginFlag ==="1"){
     document.getElementById("signupButtonToHide").style.display = "none";
     document.getElementById("loginButtonToHide").style.display = "none";
+    document.getElementById("signupButtonToHide2").style.display = "none";
+    document.getElementById("loginButtonToHide2").style.display = "none";
   }
 }
 
