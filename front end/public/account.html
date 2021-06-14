@@ -12,8 +12,8 @@
   <div class="phone-container topnav flex flex-col md:flex-row h-10 items-center md:items-start md:justify-end">
     <img src="nav.png" class="hidden md:inline-block ml-auto lg:w-1/4 md:w-1/2 z-10" alt="">
     <div id="links" class="hidden text-md flex-col middle z-10 font-semibold md:flex md:flex-col absolute md:mr-14 md:ml-0 lg:mr-6 xl:mr-14 md:mt-6 txt-shadow">
-      <a href="login.html" class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-12 pr-12">L<span class="text-base">OGIN</span></a>
-      <a href="sign-up.html" class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-10 pr-10">S<span class="text-base">IGN UP</span></a>
+      <a href="login.html" id="loginButtonToHide"  class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-12 pr-12">L<span class="text-base">OGIN</span></a>
+      <a href="sign-up.html" id="signupButtonToHide"  class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-10 pr-10">S<span class="text-base">IGN UP</span></a>
       <a href="account-orders.html" class="my-6 md:my-1 btn-nav block hover:text-blue focus:text-blue m-auto pl-11 pr-11">O<span class="text-base">RDER</span></a>
       <a href="account.html" class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-8 pr-8">A<span class="text-base">CCOUNT</span></a>
       <a href="#about" class="my-6 md:my-1 block btn-nav hover:text-blue focus:text-blue m-auto pl-8 pr-8">A<span class="text-base">BOUT US</span></a>
@@ -46,7 +46,7 @@
    <div class="flex flex-col justify-center py-5 md:hidden">
      <a href="account-orders.html" class="account-shadow py-3 px-3 my-2 rounded-xl"><button class="font-bold">O<span></span>RDERS</span></button></a>
      <a href="account-myOrders.html" class="account-shadow py-3 px-3 my-2 rounded-xl flex justify-center"><button class="font-bold">M<span>Y ORDERS</span></button></a>
-     <a href="account-logout.html" id="logout" class="account-shadow py-3 px-3 my-2 rounded-xl"><button class="font-bold">L<span></span>OGOUT</span></button></a>
+     <button id="logoutButton" onclick="logout()" class="font-bold account-shadow py-3 px-3 my-2 rounded-xl">L<span></span>OGOUT</span></button>
    </div>
 </div>
 <div>
@@ -66,7 +66,7 @@
   <div class="hidden md:flex flex-col justify-center py-6 mr-4 bg-white account-shadow rounded-md ml-4 mt-3 lg:py-2">
   <a href="account-orders.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">O<span></span>RDERS</span></button></a>
   <a href="account-myOrders.html" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">M<span>Y ORDERS</span></button></a>
-  <a href="account-logout.html" id="logout" class="account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center"><button class="font-bold">L<span></span>OGOUT</span></button></a>
+  <button id="logoutButton2" onclick="logout()" class="font-bold account-sec-shadow py-4 my-4 mx-6 rounded-md flex justify-center">L<span></span>OGOUT</span></button>
 </div>
 </div>
 
@@ -121,6 +121,7 @@
 </div>
 <script src="index.js"></script>
 <script src="account.js"></script>
+<script src="logout.js"></script>
 
   </body>
 </html>

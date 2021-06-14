@@ -10,3 +10,13 @@ function myFunction() {
     links.style.height = '100vh'
     links.style.justifyContent = "center";
   }
+
+function loginHide(){
+  let loginFlag = window.localStorage.getItem("loginFlag");
+  if(loginFlag ==="1"){
+    document.getElementById("signupButtonToHide").style.display = "none";
+    document.getElementById("loginButtonToHide").style.display = "none";
+  }
+}
+
+window.onload = loginHide();

@@ -55,10 +55,16 @@ function lsRememberMe() {
     window.localStorage.setItem("address", address) 
     window.localStorage.setItem("postCode", postCode) 
     window.localStorage.setItem("driverLicense", driverLicense) 
-
     if (response.message.statusCode == 200) {
+      let loginFlag = 1;
+      window.localStorage.setItem("loginFlag", loginFlag);
+      window.location.href = "account.html"
+    }else if(response.statusCode == 200){
+      let loginFlag = 1;
+      window.localStorage.setItem("loginFlag", loginFlag);
       window.location.href = "account.html"
     }
+    
     };
 
 
@@ -82,11 +88,12 @@ const userData = {
 }
 
 
-const url = 'https://localhost:44353/' + userName + '/login';
+const url = 'https://localhost:5001/userrr/login';
 xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))
 xhr.send(JSON.stringify(userData));
+
 }
 
 

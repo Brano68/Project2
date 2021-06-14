@@ -50,5 +50,31 @@ function getCars(){
 window.onload=getCars;
 
 function borrow(){
-  
+
+    const login = document.getElementById('user').value.trim()
+    window.localStorage.setItem("login", user)
+    const password = document.getElementById('password').value.trim()
+    var plate = document.getElementById("admin");
+    
+    
+    
+    if (checkBox.checked === true) {
+        userName = 'admin';
+    } else {
+        userName = 'userrr';
+    }
+    
+    const userData = {
+      "login": user,
+      "password": password
+    }
+    
+    
+    const url = 'https://localhost:5001/userrr/login';
+    xhr.open('post', url, true)
+    xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
+    console.log(JSON.stringify(userData))
+    xhr.send(JSON.stringify(userData));
+    
+    
 }
