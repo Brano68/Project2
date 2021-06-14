@@ -88,7 +88,7 @@ const userData = {
 }
 
 
-const url = 'https://localhost:5001/userrr/login';
+const url = 'https://localhost:44353/userrr/login';
 xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))
