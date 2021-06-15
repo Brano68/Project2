@@ -46,7 +46,7 @@ const card = () =>{
     }
   
   
-    const url = 'https://localhost:5001/userrr/pay';
+    const url = 'https://localhost:44353/userrr/pay';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
