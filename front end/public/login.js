@@ -58,10 +58,18 @@ function lsRememberMe() {
     if (response.message.statusCode == 200) {
       let loginFlag = 1;
       window.localStorage.setItem("loginFlag", loginFlag);
+      const loginStored = document.getElementById('user').value.trim();
+      const passwordStored = document.getElementById('password').value.trim();
+      window.localStorage.setItem("loginStored",loginStored);
+      window.localStorage.setItem("passwordStored",passwordStored);
       window.location.href = "account.html"
     }else if(response.statusCode == 200){
       let loginFlag = 1;
       window.localStorage.setItem("loginFlag", loginFlag);
+      const loginStored = document.getElementById('user').value.trim();
+      const passwordStored = document.getElementById('password').value.trim();
+      window.localStorage.setItem("loginStored",loginStored);
+      window.localStorage.setItem("passwordStored",passwordStored);
       window.location.href = "account.html"
     }
     
@@ -88,7 +96,7 @@ const userData = {
 }
 
 
-const url = 'https://localhost:44353/' + userName +'/login';
+const url = 'https://localhost:5001/userrr/login';
 xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))

@@ -6,7 +6,7 @@ function getCars(){
   var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
   var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
   
-  $.getJSON('https://localhost:44353/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
+  $.getJSON('https://localhost:5001/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
     
     const cars = data["yourCars"];
     console.log(cars[1])
@@ -22,8 +22,7 @@ function getCars(){
       const fuel = cars[index].fuel;
       const gear = cars[index].gear;
       const path = cars[index].path;
-      const fuelIconSvg = ''
-      const passengersIconSvg = ''
+      
       
       let gearImg;
       if(gear ==="Automat")
@@ -37,13 +36,17 @@ function getCars(){
       else
       air = "No"
 
-      $( ".carsDiv" ).append( '<div id="carBorder" class="bglogin rounded-xl"><div class="carDiv md:m-auto" id="' + (plate) + '"><div class="carDiv1"><div id="carName">' + brandOfCar + ' ' + model + '</div></div>' + 
-      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton ml-10"><div class="orderButtonText font-sans"><span id="price"> ' + price + ' </span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
+      $( ".carsDiv" ).append( '<div id="carBorder" class="bglogin rounded-xl"><div class="carDiv md:m-auto"><div class="carDiv1"><div id="carName">' + brandOfCar + ' ' + model + '</div></div>' + 
+      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton"  id="' + (plate) + '" onClick="borrow(this.id)" ml-10"><div class="orderButtonText font-sans"><span id="price"> ' + price + ' </span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
       '<div class="carDiv3"><div class="carIcons text-sm text-center"><img src="fuel.png"> ' + fuel + '</div><div class="carIcons text-sm text-center"><img src="Electronic_Devices__28141_29.png"> ' + numberOfPassenger + '</div><div id="gear" class="carIcons text-sm text-center"><img src="'+gearImg+'">' + gear + '</div><div class="carIcons text-sm text-center"><img src="air.png">' + air + '</div><div class="carIcons text-sm"></div></div></div></div>' );
 
 
       console.log(brandOfCar, model, plate);
-
+      var d = new Date();
+      var sendingDate1 = date1final + "." + month1final + "."+ d.getFullYear();
+      var sendingDate2 = date2final + "." + month2final + "."+ d.getFullYear();
+      window.localStorage.setItem("sendingDate1",sendingDate1);
+      window.localStorage.setItem("sendingDate2",sendingDate2);
       
 
     }
@@ -56,35 +59,48 @@ function getCars(){
   
 
   });
+
+  //reset of a calendar after moving to the next page
+  let reset = null;
+  let resetMonth = 0;
+  window.localStorage.setItem("pickedDate1Stored", reset);
+  window.localStorage.setItem("pickedMonth1stored", reset);
+  window.localStorage.setItem("pickedDate2Stored", reset);
+  window.localStorage.setItem("pickedMonth2stored", reset);
+  window.localStorage.setItem("monthChangeStored", resetMonth);
+  window.localStorage.setItem("flagStored", reset);
+
 }
+
 window.onload=getCars;
 
-function borrow(){
+function borrow(clicked_id){
+    
+    var xhr = new XMLHttpRequest()
+    let plate = clicked_id;
+    let date1 = window.localStorage.getItem("sendingDate1");
+    let date2 = window.localStorage.getItem("sendingDate2");
 
-    const login = document.getElementById('user').value.trim()
-    window.localStorage.setItem("login", user)
-    const password = document.getElementById('password').value.trim()
-    var plate = document.getElementById("admin");
-    
-    
-    
-    if (checkBox.checked === true) {
-        userName = 'admin';
-    } else {
-        userName = 'userrr';
+    let login = window.localStorage.getItem("loginStored");
+    let password = window.localStorage.getItem("passwordStored");
+    const token = window.localStorage.getItem("token");
+
+    const borrowData = {
+      "login": login,
+      "password": password,
+      "plate": plate,
+      "from": date1,
+      "to": date2
     }
-    
-    const userData = {
-      "login": user,
-      "password": password
-    }
-    
-    
-    const url = 'https://localhost:5001/userrr/login';
+
+ 
+    const url = 'https://localhost:5001/userrr/borrow';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
-    console.log(JSON.stringify(userData))
-    xhr.send(JSON.stringify(userData));
+    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+
+    console.log(JSON.stringify(borrowData))
+    xhr.send(JSON.stringify(borrowData));
     
     
 }
