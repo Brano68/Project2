@@ -37,9 +37,10 @@ function getCars(){
       air = "No"
 
       $( ".carsDiv" ).append( '<div id="carBorder" class="bglogin rounded-xl"><div class="carDiv md:m-auto"><div class="carDiv1"><div id="carName">' + brandOfCar + ' ' + model + '</div></div>' + 
-      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton"  id="' + (plate) + '" onClick="borrow(this.id)" ml-10"><div class="orderButtonText font-sans"><span id="price"> ' + price + ' </span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
+      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton"  id="' + (plate) + '" onClick="borrow(this.id)" ml-10"><div class="orderButtonText font-sans"><span id="price">' + price + '</span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
       '<div class="carDiv3"><div class="carIcons text-sm text-center"><img src="fuel.png"> ' + fuel + '</div><div class="carIcons text-sm text-center"><img src="Electronic_Devices__28141_29.png"> ' + numberOfPassenger + '</div><div id="gear" class="carIcons text-sm text-center"><img src="'+gearImg+'">' + gear + '</div><div class="carIcons text-sm text-center"><img src="air.png">' + air + '</div><div class="carIcons text-sm"></div></div></div></div>' );
 
+      
 
       console.log(brandOfCar, model, plate);
       var d = new Date();
@@ -81,9 +82,17 @@ function borrow(clicked_id){
     let date1 = window.localStorage.getItem("sendingDate1");
     let date2 = window.localStorage.getItem("sendingDate2");
 
+    let parentOfPrice = document.getElementById(clicked_id);
+    let priceText = parentOfPrice.firstChild.textContent;
+    let price = priceText.split(" ")[0];
+    window.localStorage.setItem("price", price);
+
+    console.log(price);
+
     let login = window.localStorage.getItem("loginStored");
     let password = window.localStorage.getItem("passwordStored");
     const token = window.localStorage.getItem("token");
+
 
     const borrowData = {
       "login": login,
@@ -100,6 +109,7 @@ function borrow(clicked_id){
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 
     console.log(JSON.stringify(borrowData))
+    console.log(price);
     xhr.send(JSON.stringify(borrowData));
     
     
