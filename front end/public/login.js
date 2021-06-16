@@ -104,11 +104,7 @@ const userData = {
 }
 
 
-<<<<<<< HEAD
 const url = 'https://localhost:5001/' + userName + '/login';
-=======
-const url = 'https://localhost:44353/'+ userName +'/login';
->>>>>>> fefaf2769ccdf139c5e0de77615c62d11cb02f08
 xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))
