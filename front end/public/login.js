@@ -63,6 +63,10 @@ function lsRememberMe() {
       window.localStorage.setItem("loginStored",loginStored);
       window.localStorage.setItem("passwordStored",passwordStored);
       window.location.href = "account.html"
+      if(role == "admin"){
+        loginFlag = 2;
+        window.localStorage.setItem("loginFlag", loginFlag);
+      }
     }else if(response.statusCode == 200){
       let loginFlag = 1;
       window.localStorage.setItem("loginFlag", loginFlag);
@@ -71,6 +75,10 @@ function lsRememberMe() {
       window.localStorage.setItem("loginStored",loginStored);
       window.localStorage.setItem("passwordStored",passwordStored);
       window.location.href = "account.html"
+      if(role == "admin"){
+        loginFlag = 2;
+        window.localStorage.setItem("loginFlag", loginFlag);
+      }
     }
     
     };
@@ -96,7 +104,7 @@ const userData = {
 }
 
 
-const url = 'https://localhost:5001/userrr/login';
+const url = 'https://localhost:5001/' + userName + '/login';
 xhr.open('post', url, true)
 xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
 console.log(JSON.stringify(userData))

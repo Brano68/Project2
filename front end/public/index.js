@@ -13,24 +13,19 @@ function myFunction() {
 
 function loginHide(){
   let loginFlag = window.localStorage.getItem("loginFlag");
-  if(loginFlag ==="1"){
+  if(loginFlag === "1"){
+    
     document.getElementById("signupButtonToHide").style.display = "none";
     document.getElementById("loginButtonToHide").style.display = "none";
     document.getElementById("signupButtonToHide2").style.display = "none";
-    document.getElementById("loginButtonToHide2").style.display = "none";
-    function loadOrders(){
-      window.location.href="account-orders.html"
-    }
-    document.getElementById("rentButton").addEventListener("click", loadOrders)
+    document.getElementById("loginButtonToHide2").style.display = "none"; 
   }
-  else{
+  else if(loginFlag === "0"){
+    
     document.getElementById("accountButtonToHide").style.display = "none";
     document.getElementById("accountButtonToHide2").style.display = "none";
-    function loadOrders(){
-      window.location.href="login.html"
-    }
-    document.getElementById("rentButton").addEventListener("click", loadOrders)
   }
+    
 }
 
 window.onload = loginHide();
