@@ -55,7 +55,8 @@ const saveData = () => {
     const driverLicense = document.getElementById('drivers-license').value.trim()
     const username = window.localStorage.getItem("login");
     const token = window.localStorage.getItem("token")
-   
+
+alert(token)
     const userData = {
     "login": username,
     "userFname": fname,
@@ -68,7 +69,7 @@ const saveData = () => {
     "driverLicenceNumber": driverLicense, 
     }
     console.log(userData);
-    const url = "https://localhost:5001/userrr/fillData";
+    const url = "https://localhost:44353/userrr/fillData";
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);

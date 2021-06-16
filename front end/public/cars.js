@@ -6,7 +6,7 @@ function getCars(){
   var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
   var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
   
-  $.getJSON('https://localhost:5001/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
+  $.getJSON('https://localhost:44353/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
     
     const cars = data["yourCars"];
     console.log(cars[1])
@@ -37,7 +37,7 @@ function getCars(){
       air = "No"
 
       $( ".carsDiv" ).append( '<div id="carBorder" class="bglogin rounded-xl"><div class="carDiv md:m-auto"><div class="carDiv1"><div id="carName">' + brandOfCar + ' ' + model + '</div></div>' + 
-      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton"  id="' + (plate) + '" onClick="borrow(this.id)" ml-10"><div class="orderButtonText font-sans"><span id="price">' + price + '</span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
+      '<div class="carDiv2 justify-between"><img id="carPicture" src=' + path + '><button class="orderButton ml-8"  id="' + (plate) + '" onClick="borrow(this.id)" "><div class="orderButtonText font-sans"><span id="price">' + price + '</span> € PER DAY</div><div class="orderButtonText font-sans">ORDER NOW</div></button></div>' + 
       '<div class="carDiv3"><div class="carIcons text-sm text-center"><img src="fuel.png"> ' + fuel + '</div><div class="carIcons text-sm text-center"><img src="Electronic_Devices__28141_29.png"> ' + numberOfPassenger + '</div><div id="gear" class="carIcons text-sm text-center"><img src="'+gearImg+'">' + gear + '</div><div class="carIcons text-sm text-center"><img src="air.png">' + air + '</div><div class="carIcons text-sm"></div></div></div></div>' );
 
       
@@ -103,7 +103,7 @@ function borrow(clicked_id){
     }
 
  
-    const url = 'https://localhost:5001/userrr/borrow';
+    const url = 'https://localhost:44353/userrr/borrow';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
