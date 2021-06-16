@@ -1,6 +1,4 @@
-
 var xhr = new XMLHttpRequest()
-const login = window.localStorage.getItem("login")
 const token = window.localStorage.getItem("token")
 const cardNumberUser = window.localStorage.getItem("cardNumber")
 const cardNameUser = window.localStorage.getItem("cardName")
@@ -22,6 +20,7 @@ if (cvcUser === "undefined")
 cvcUser = ""
 
 const card = () =>{
+    const login = window.localStorage.getItem("login")
     const cardNumber = document.getElementById('card-number').value.trim()
     const cardName = document.getElementById('name-on-card').value.trim()
     const expirationDate = document.getElementById('valid').value.trim()
@@ -46,13 +45,13 @@ const card = () =>{
     }
   
   
-    const url = 'https://localhost:5001/userrr/pay';
+    const url = 'https://localhost:44353/userrr/pay';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(cardData))
     xhr.send(JSON.stringify(cardData));
-    
+    alert(login)
   }
   pay.addEventListener('click', card)
 
