@@ -270,5 +270,7 @@
 
     width: 320px;
   }
-  
+  #definitePay{
+    background-color: black;
+  }
 }
