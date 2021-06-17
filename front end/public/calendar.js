@@ -8,7 +8,7 @@ function monthDecrease(){
         window.localStorage.setItem("monthChangeStored", monthChange);
     }
     var monthChangeStored = window.localStorage.getItem("monthChangeStored");
-    if(monthChangeStored>=-1){
+    if(monthChangeStored>0){
         monthChangeStored--;
         window.localStorage.setItem("monthChangeStored", monthChangeStored);
     }
@@ -23,7 +23,7 @@ function monthIncrease(){
         window.localStorage.setItem("monthChangeStored", monthChange);
     }
     var monthChangeStored = window.localStorage.getItem("monthChangeStored");
-    if(monthChangeStored<=1){
+    if(monthChangeStored<=4){
         monthChangeStored++;
         window.localStorage.setItem("monthChangeStored", monthChangeStored);
     }
