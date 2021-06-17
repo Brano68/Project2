@@ -1,38 +1,15 @@
-var xhr = new XMLHttpRequest()
-const token = window.localStorage.getItem("token")
-const cardNumberUser = window.localStorage.getItem("cardNumber")
-const cardNameUser = window.localStorage.getItem("cardName")
-const expirationDateUser = window.localStorage.getItem("expirationDate")
-const cvcUser = window.localStorage.getItem("cvc")
-const pay = document.getElementById('pay')
+var xhr = new XMLHttpRequest() 
 
-document.getElementById('card-number').value = cardNumberUser
-document.getElementById('name-on-card').value = cardNameUser
-document.getElementById('valid').value = expirationDateUser
-document.getElementById('cvv').value = cvcUser
-if (cardNameUser === "undefined")
-cardNameUser = ""
-if (cardNumberUser === "undefined")
-cardNumberUser = ""
-if (expirationDateUser === "undefined")
-expirationDateUser = ""
-if (cvcUser === "undefined")
-cvcUser = ""
 
 const card = () =>{
     const login = window.localStorage.getItem("login")
-    const cardNumber = document.getElementById('card-number').value.trim()
-    const cardName = document.getElementById('name-on-card').value.trim()
-    const expirationDate = document.getElementById('valid').value.trim()
-    const cvc = document.getElementById('cvv').value.trim()
-    const from = parseInt(window.localStorage.getItem("pickedDate1Stored"))
-    const to = parseInt(window.localStorage.getItem("pickedDate2Stored"))
-    const price = parseInt(window.localStorage.getItem("price"))
-    window.localStorage.setItem("cardNumber", cardNumber)
-    window.localStorage.setItem("cardName", cardName)
-    window.localStorage.setItem("expirationDate", expirationDate)
-    window.localStorage.setItem("cvc", cvc)
-    
+    const cardNumber = document.getElementById('cardNumber').value
+    const cardName = document.getElementById('nameOnCard').value
+    const expirationDate = document.getElementById('expiry').value
+    const cvc = parseInt(document.getElementById('cvv').value)
+    const from = parseInt(window.localStorage.getItem("sendingDate1")).toString()
+    const to = parseInt(window.localStorage.getItem("sendingDate2")).toString()
+    const price = parseInt(window.localStorage.getItem("totalPrice"))
     const cardData = {
         "login": login,
         "from": from,
@@ -41,18 +18,21 @@ const card = () =>{
         "cardName": cardName,
         "expirationDate": expirationDate,
         "cvc": cvc,
-        "price": price,
+        "price": price
+          
     }
   
   
     const url = 'https://localhost:44353/userrr/pay';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
-    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(cardData))
     xhr.send(JSON.stringify(cardData));
-    alert(login)
   }
+  xhr.onload = () => {
+    const response = JSON.parse(xhr.responseText);
+    console.log(response);
+    }
   pay.addEventListener('click', card)
 
 

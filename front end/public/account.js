@@ -56,7 +56,7 @@ const saveData = () => {
     const username = window.localStorage.getItem("login");
     const token = window.localStorage.getItem("token")
 
-alert(token)
+
     const userData = {
     "login": username,
     "userFname": fname,
