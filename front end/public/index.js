@@ -14,18 +14,17 @@ function myFunction() {
 function loginHide(){
   let loginFlag = window.localStorage.getItem("loginFlag");
   if(loginFlag === "1"){
-    
+    document.getElementById("addCarButtonToHide").style.display = "none";
     document.getElementById("signupButtonToHide").style.display = "none";
     document.getElementById("loginButtonToHide").style.display = "none";
     document.getElementById("signupButtonToHide2").style.display = "none";
     document.getElementById("loginButtonToHide2").style.display = "none"; 
-    document.getElementById("addCarButtonToHide").style.display = "none";
+    
   }
   else if(loginFlag === "0"){
-    
+    document.getElementById("addCarButtonToHide").style.display = "none";
     document.getElementById("accountButtonToHide").style.display = "none";
     document.getElementById("accountButtonToHide2").style.display = "none";
-    document.getElementById("addCarButtonToHide").style.display = "none";
   }
     
 }

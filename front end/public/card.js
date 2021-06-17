@@ -1,6 +1,11 @@
 var xhr = new XMLHttpRequest() 
 
 
+
+
+
+
+
 const card = () =>{
     const login = window.localStorage.getItem("login")
     const cardNumber = document.getElementById('cardNumber').value
@@ -32,9 +37,13 @@ const card = () =>{
   xhr.onload = () => {
     const response = JSON.parse(xhr.responseText);
     console.log(response);
-    if(response.statusCode === 200)
-    //window.location.href = "account-orders.html"
-    alert("The payment is successful.")
+    if(response.statusCode === 200){
+      
+      alert("The payment is successful.")
+      window.location.href = "afterOrder.html"
+      
+    }
+    
   }
 
   pay.addEventListener('click', card)

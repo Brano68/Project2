@@ -29,15 +29,17 @@ postCodeUser = ""
 if (driverLicenseUser === "undefined")
 driverLicenseUser = ""
 
+function showData(){
+    document.getElementById('fname').value = fnameUser;
+    document.getElementById('lname').value = lnameUser;
+    document.getElementById('phone').value = phoneUser;
+    document.getElementById('country').value = countryUser;
+    document.getElementById('city').value = cityUser;
+    document.getElementById('address').value = addressUser;
+    document.getElementById('post-code').value = postCodeUser;
+    document.getElementById('drivers-license').value = driverLicenseUser;
 
-document.getElementById('fname').value = fnameUser;
-document.getElementById('lname').value = lnameUser;
-document.getElementById('phone').value = phoneUser;
-document.getElementById('country').value = countryUser;
-document.getElementById('city').value = cityUser;
-document.getElementById('address').value = addressUser;
-document.getElementById('post-code').value = postCodeUser;
-document.getElementById('drivers-license').value = driverLicenseUser;
+}
 
 
 
@@ -66,7 +68,7 @@ const saveData = () => {
     "city": city,
     "adress": address,
     "postCode": postCode,
-    "driverLicenceNumber": driverLicense, 
+    "driverLicenceNumber": driverLicense 
     }
     console.log(userData);
     const url = "https://localhost:5001/userrr/fillData";
@@ -77,6 +79,8 @@ const saveData = () => {
     xhr.send(JSON.stringify(userData));
    
 }
+
+window.onload = showData();
 
     
 buttonSave.addEventListener('click', saveData)

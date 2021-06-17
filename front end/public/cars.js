@@ -78,6 +78,8 @@ window.onload=getCars;
 function borrow(clicked_id){
     
     var xhr = new XMLHttpRequest()
+
+    
     let plate = clicked_id;
     let date1 = window.localStorage.getItem("sendingDate1");
     let date2 = window.localStorage.getItem("sendingDate2");
@@ -114,9 +116,24 @@ function borrow(clicked_id){
     console.log(JSON.stringify(borrowData))
     console.log(price);
     xhr.send(JSON.stringify(borrowData));
+
+
+    xhr.onload = () => {
+      const response = JSON.parse(xhr.responseText);
+      console.log(response);
+      const carId = response.carId;
+      const userId = response.userId;
+      if(response.statusCode === 200){
+        window.localStorage.setItem("carId",carId)
+        window.localStorage.setItem("userId",userId)
+        window.location.href="summary.html"
+      }else if(response.statusCode === 401){
+        alert("Connection timed out, your token is invalid.")
+      }
+      
+    }
+
     
-    
-    window.location.href="summary.html"
     
     
 }
