@@ -11,6 +11,7 @@ let addressUser = window.localStorage.getItem("address")
 let postCodeUser = window.localStorage.getItem("postCode") 
 let driverLicenseUser = window.localStorage.getItem("driverLicense") 
 
+
 if (fnameUser === "undefined")
 fnameUser = ""
 if (lnameUser === "undefined")
@@ -28,17 +29,18 @@ postCodeUser = ""
 if (driverLicenseUser === "undefined")
 driverLicenseUser = ""
 
-function showData(){
-    document.getElementById('fname').value = fnameUser;
-    document.getElementById('lname').value = lnameUser;
-    document.getElementById('phone').value = phoneUser;
-    document.getElementById('country').value = countryUser;
-    document.getElementById('city').value = cityUser;
-    document.getElementById('address').value = addressUser;
-    document.getElementById('post-code').value = postCodeUser;
-    document.getElementById('drivers-license').value = driverLicenseUser;
 
-}
+document.getElementById('fname').value = fnameUser;
+document.getElementById('lname').value = lnameUser;
+document.getElementById('phone').value = phoneUser;
+document.getElementById('country').value = countryUser;
+document.getElementById('city').value = cityUser;
+document.getElementById('address').value = addressUser;
+document.getElementById('post-code').value = postCodeUser;
+document.getElementById('drivers-license').value = driverLicenseUser;
+
+
+
 
 
 
@@ -54,7 +56,7 @@ const saveData = () => {
     const username = window.localStorage.getItem("login");
     const token = window.localStorage.getItem("token")
 
-
+    
     const userData = {
     "login": username,
     "userFname": fname,
@@ -64,23 +66,23 @@ const saveData = () => {
     "city": city,
     "adress": address,
     "postCode": postCode,
-    "driverLicenceNumber": driverLicense 
+    "driverLicenceNumber": driverLicense, 
     }
     console.log(userData);
-    const url = "https://localhost:44353/userrr/fillData";
+    const url = "https://localhost:5001/userrr/fillData";
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
+   
 }
-
-
 
 let fnameLname = document.getElementById('fnameLname')
 let fnameLnamePhone = document.getElementById("fnameLnamePhone")
 let email = window.localStorage.getItem("email")
 let emailUser = document.getElementById("emailUser")
+let emailUserPhone = document.getElementById("emailUserPhone")
 if(fnameUser === null && lnameUser === null){
    fnameLname = "Your name" 
 }else{
@@ -88,7 +90,8 @@ fnameLname.innerHTML  = fnameUser + " " + lnameUser;
 fnameLnamePhone.innerHTML = fnameUser + " " + lnameUser;  
 }
 
-emailUser.innerHTML = email;
+emailUser.innerHTML = email;   
+emailUserPhone.innerHTML = email; 
 buttonSave.addEventListener('click', saveData)
 function visitPage(){
    window.location.href = "account-orders.html"

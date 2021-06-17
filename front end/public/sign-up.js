@@ -64,7 +64,7 @@ xhr.onload = () => {
       "email" : email,
       "globalPassword": adminInput  
     }
-    const url = 'https://localhost:44353/admin/create';
+    const url = 'https://localhost:5001/admin/create';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -76,7 +76,7 @@ xhr.onload = () => {
         "password": password,
         "email" : email
     }
-    const url = 'https://localhost:44353/userrr/create';
+    const url = 'https://localhost:5001/userrr/create';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(userData))

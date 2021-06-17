@@ -25,7 +25,7 @@ function definitiveOrder(){
     xhr2.send(JSON.stringify(definiteData));
       
     xhr2.onload = () => {
-        const response = xhr2.responseText;
+        const response = JSON.parse(xhr2.responseText);
         console.log(response);
         if(response.statusCode === 200){
             
