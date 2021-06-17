@@ -26,7 +26,8 @@ function loginHide(){
     document.getElementById("accountButtonToHide").style.display = "none";
     document.getElementById("accountButtonToHide2").style.display = "none";
   }
-    
+  else if(loginFlag === "2")
+    document.getElementById("addCarButtonToHide").style.display = "flex"
 }
 
 window.onload = loginHide();

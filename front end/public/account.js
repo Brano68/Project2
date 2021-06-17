@@ -11,7 +11,6 @@ let addressUser = window.localStorage.getItem("address")
 let postCodeUser = window.localStorage.getItem("postCode") 
 let driverLicenseUser = window.localStorage.getItem("driverLicense") 
 
-
 if (fnameUser === "undefined")
 fnameUser = ""
 if (lnameUser === "undefined")
@@ -43,9 +42,6 @@ function showData(){
 
 
 
-
-
-
 const saveData = () => {
     const fname = document.getElementById('fname').value.trim()
     const lname = document.getElementById('lname').value.trim()
@@ -71,20 +67,29 @@ const saveData = () => {
     "driverLicenceNumber": driverLicense 
     }
     console.log(userData);
-    const url = "https://localhost:5001/userrr/fillData";
+    const url = "https://localhost:44353/userrr/fillData";
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
-   
 }
 
-window.onload = showData();
 
-    
+
+let fnameLname = document.getElementById('fnameLname')
+let fnameLnamePhone = document.getElementById("fnameLnamePhone")
+let email = window.localStorage.getItem("email")
+let emailUser = document.getElementById("emailUser")
+if(fnameUser === null && lnameUser === null){
+   fnameLname = "Your name" 
+}else{
+fnameLname.innerHTML  = fnameUser + " " + lnameUser;
+fnameLnamePhone.innerHTML = fnameUser + " " + lnameUser;  
+}
+
+emailUser.innerHTML = email;
 buttonSave.addEventListener('click', saveData)
 function visitPage(){
    window.location.href = "account-orders.html"
 }
-
