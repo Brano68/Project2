@@ -22,17 +22,21 @@ const card = () =>{
           
     }
   
-  
     const url = 'https://localhost:44353/userrr/pay';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(cardData))
-    xhr.send(JSON.stringify(cardData));
+    xhr.send(JSON.stringify(cardData)); 
+    event.preventDefault()
   }
   xhr.onload = () => {
     const response = JSON.parse(xhr.responseText);
     console.log(response);
-    }
+    if(response.statusCode === 200)
+    window.location.href = "account-orders.html"
+  }
+
   pay.addEventListener('click', card)
 
+  
 
