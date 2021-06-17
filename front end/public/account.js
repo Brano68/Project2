@@ -11,7 +11,6 @@ let addressUser = window.localStorage.getItem("address")
 let postCodeUser = window.localStorage.getItem("postCode") 
 let driverLicenseUser = window.localStorage.getItem("driverLicense") 
 
-
 if (fnameUser === "undefined")
 fnameUser = ""
 if (lnameUser === "undefined")
@@ -38,9 +37,6 @@ document.getElementById('city').value = cityUser;
 document.getElementById('address').value = addressUser;
 document.getElementById('post-code').value = postCodeUser;
 document.getElementById('drivers-license').value = driverLicenseUser;
-
-
-
 
 
 
@@ -75,12 +71,23 @@ const saveData = () => {
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
-   
 }
 
-    
+
+
+let fnameLname = document.getElementById('fnameLname')
+let fnameLnamePhone = document.getElementById("fnameLnamePhone")
+let email = window.localStorage.getItem("email")
+let emailUser = document.getElementById("emailUser")
+if(fnameUser === null && lnameUser === null){
+   fnameLname = "Your name" 
+}else{
+fnameLname.innerHTML  = fnameUser + " " + lnameUser;
+fnameLnamePhone.innerHTML = fnameUser + " " + lnameUser;  
+}
+
+emailUser.innerHTML = email;
 buttonSave.addEventListener('click', saveData)
 function visitPage(){
    window.location.href = "account-orders.html"
 }
-

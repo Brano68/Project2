@@ -47,7 +47,7 @@ xhr.onload = () => {
     const user = document.getElementById('user').value.trim()
     const email = document.getElementById('email').value.trim()
     const password = document.getElementById('password').value.trim()
-  
+    window.localStorage.setItem('email', email)
     let adminInput = null;
     let userName = null;
     
