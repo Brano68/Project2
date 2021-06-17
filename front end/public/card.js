@@ -22,7 +22,7 @@ const card = () =>{
           
     }
   
-    const url = 'https://localhost:44353/userrr/pay';
+    const url = 'https://localhost:5001/userrr/pay';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(cardData))
@@ -33,7 +33,8 @@ const card = () =>{
     const response = JSON.parse(xhr.responseText);
     console.log(response);
     if(response.statusCode === 200)
-    window.location.href = "account-orders.html"
+    //window.location.href = "account-orders.html"
+    alert("The payment is successful.")
   }
 
   pay.addEventListener('click', card)

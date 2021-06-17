@@ -46,7 +46,7 @@ if (airConditioner ==='yes'){
     }
   
   
-    const url = 'https://localhost:44353/admin/addCar';
+    const url = 'https://localhost:5001/admin/addCar';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);

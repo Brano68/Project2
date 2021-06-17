@@ -6,7 +6,7 @@ function getCars(){
   var month1final = parseInt(window.localStorage.getItem("pickedMonth1Stored")); 
   var month2final = parseInt(window.localStorage.getItem("pickedMonth2Stored")); 
   
-  $.getJSON('https://localhost:44353/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
+  $.getJSON('https://localhost:5001/car/models?From='+ date1final + '.' +month1final+ '.' + d.getFullYear() + '&To=' + date2final + '.' + month2final + '.' + d.getFullYear(), function(data) {
     
     const cars = data["yourCars"];
     console.log(cars[1])
@@ -106,7 +106,7 @@ function borrow(clicked_id){
     }
 
  
-    const url = 'https://localhost:44353/userrr/borrow';
+    const url = 'https://localhost:5001/userrr/borrow';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
