@@ -69,12 +69,12 @@ xhr.onload = () => {
     }
   
   
-    const url = 'https://localhost:44353/userrr/create';
+    const url = 'https://localhost:44353/'+ userName+'/create';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
-    
+    event.preventDefault()
   }
 
 
