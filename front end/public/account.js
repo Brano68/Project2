@@ -65,7 +65,7 @@ const saveData = () => {
     "driverLicenceNumber": driverLicense, 
     }
     console.log(userData);
-    const url = "https://localhost:5001/userrr/fillData";
+    const url = "https://localhost:44353/userrr/fillData";
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     xhr.setRequestHeader('Authorization', 'Bearer ' + token);

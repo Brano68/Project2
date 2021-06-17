@@ -47,6 +47,7 @@ xhr.onload = () => {
     const user = document.getElementById('user').value.trim()
     const email = document.getElementById('email').value.trim()
     const password = document.getElementById('password').value.trim()
+    const token = window.localStorage.getItem("token")
     window.localStorage.setItem('email', email)
     let adminInput = null;
     let userName = null;
@@ -54,28 +55,34 @@ xhr.onload = () => {
 
     
     if (checkBox.checked === true) {
-        userName = 'admin';
         adminInput = document.getElementById("adminField").value.trim()
-    } else {
-        userName = 'userrr';
-    }
-  
-    const userData = {
+   
+    let userData = {
       "loginWhoIsCreating": login,
       "login": user,
       "password": password,
       "email" : email,
-      "globalPassword": adminInput,
+      "globalPassword": adminInput  
     }
-  
-  
-    const url = 'https://localhost:44353/'+ userName+'/create';
+    const url = 'https://localhost:44353/admin/create';
+    xhr.open('post', url, true)
+    xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
+    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+    console.log(JSON.stringify(userData))
+    xhr.send(JSON.stringify(userData));
+} else{
+      userData = {
+        "login": user,
+        "password": password,
+        "email" : email
+    }
+    const url = 'https://localhost:44353/userrr/create';
     xhr.open('post', url, true)
     xhr.setRequestHeader("Content-Type", "application/json", "charset=UTF-8")
     console.log(JSON.stringify(userData))
     xhr.send(JSON.stringify(userData));
-    event.preventDefault()
-  }
+ }
+}
 
 
 button.addEventListener('click', create)
